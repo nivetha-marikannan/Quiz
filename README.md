@@ -1,2 +1,2 @@
 # Quiz
-# Practice more questions here and instantly you can virew your results
+# Practice more questions here and instantly you can view your results!
