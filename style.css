@@ -6,22 +6,19 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
 }
+
 
 .landing-container {
   text-align: center;
-  background: rgba(0, 0, 0, 0.6); 
+  background: rgba(0, 0, 0, 0.6);
   padding: 20px;
   border-radius: 20px;
   color: white;
   width: 90%;
   max-width: 800px;
 }
+
 
 .landing-content h1 {
   font-size: 3rem;
@@ -47,6 +44,63 @@ body {
 .start-btn:hover {
   background-color: #c0392b;
 }
+
+
+.instructions-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9); 
+  padding: 30px;
+  border-radius: 20px;
+  color: rgb(247, 241, 241); 
+  width: 90%;
+  max-width: 800px;
+  margin: auto; 
+  background-image: url("download.jpeg"); 
+  background-size: cover; 
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); 
+}
+
+.instructions-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.instructions-content h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+
+.instruction-box {
+  background: rgba(255, 255, 255, 0.8); 
+  border: 2px solid #3498db; 
+  border-radius: 10px; 
+  margin: 15px 0; 
+  padding: 15px; 
+}
+
+.instruction-text {
+  font-size: 1.3rem; 
+  font-style: italic; 
+  color: #333;
+}
+
+
+.begin-quiz-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.begin-quiz-btn:hover {
+  background-color: #2980b9;
+}
+
 
 .quiz-container {
   background-color: rgba(255, 255, 255, 0.9);
