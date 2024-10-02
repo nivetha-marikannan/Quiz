@@ -26,8 +26,9 @@
       <button id="start-btn" class="start-btn">Start Quiz</button>
     </div>
   </div>
-<div class="instructions-container" id="instructions-container" style="display: none;">
-  <div class="instructions-content">
+
+  <div class="instructions-container" id="instructions-container" style="display: none;">
+    <div class="instructions-content">
       <h1>Instructions</h1>
       <h2>Please read the following instructions carefully:</h2>
       <div class="instruction-box">
@@ -43,12 +44,19 @@
           <p class="instruction-text">Good luck, and have fun!</p>
       </div>
       <button id="begin-quiz-btn" class="begin-quiz-btn">Begin Quiz</button>
+    </div>
   </div>
-</div>
+
   <div class="quiz-container" id="quiz-container" style="display: none;">
     <h2 id="question">Questions will appear here</h2>
     <div class="answer-container" id="answers"></div>
-    <button id="next-btn" class="next-btn" style="display: none;">Next Question</button>
+    <button id="next-btn" class="next-btn" style="display: none;">Next</button>
+  </div>
+
+  <div class="completion-container" id="completion-container" style="display: none;">
+    <h2>Quiz Complete!</h2>
+    <p>Great job! You have completed the quiz.</p>
+    <button id="view-results-btn" class="view-results-btn">View Results</button>
   </div>
   <script src="quiz.js"></script>
 </body>
