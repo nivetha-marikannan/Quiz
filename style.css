@@ -112,6 +112,12 @@ body {
   margin-bottom: 10px; 
 }
 
+#timer {
+  font-size: 1.5rem;
+  color: red;
+  margin-bottom: 15px;
+}
+
 .answer-container {
   display: flex;
   flex-direction: column;
@@ -145,7 +151,7 @@ body {
 }
 
 .next-btn:hover {
-  background-color: #9a0f0f;
+  background-color: #f10e0e;
 }
 
 .options-container {
