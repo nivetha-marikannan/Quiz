@@ -4,7 +4,7 @@ let correctAnswersCount = 0;
 let incorrectAnswersCount = 0;
 const totalMarks = 10;
 let timerInterval;
-const timerDuration = 20; 
+const timerDuration = 20;
 
 async function fetchQuizQuestions() {
     const APIUrl = 'https://opentdb.com/api.php?amount=10&category=19&difficulty=hard&type=multiple';
@@ -22,15 +22,16 @@ async function fetchQuizQuestions() {
 }
 
 document.getElementById('start-btn').addEventListener('click', function() {
-    document.getElementById('landing-container').style.display = 'none'; // Hide landing page
-    document.getElementById('instructions-container').style.display = 'block'; // Show instructions
+    document.getElementById('landing-container').style.display = 'none';
+    document.getElementById('instructions-container').style.display = 'block';
+    document.body.style.backgroundImage = 'none';
 });
 
 document.getElementById('begin-quiz-btn').addEventListener('click', async function() {
-    document.getElementById('instructions-container').style.display = 'none'; 
+    document.getElementById('instructions-container').style.display = 'none';
     document.getElementById('quiz-container').style.display = 'block';
 
-    questions = await fetchQuizQuestions(); 
+    questions = await fetchQuizQuestions();
     loadQuestion(currentQuestionIndex);
 });
 
@@ -44,25 +45,25 @@ function startTimer() {
 
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            handleTimeout(); 
+            handleTimeout();
         }
     }, 1000);
 }
 
 function handleTimeout() {
-    incorrectAnswersCount++; 
-    moveToNextQuestion(); 
+    incorrectAnswersCount++;
+    moveToNextQuestion();
 }
 
 function loadQuestion(index) {
-    clearInterval(timerInterval); 
-    startTimer(); 
+    clearInterval(timerInterval);
+    startTimer();
 
     const question = questions[index];
-    document.getElementById('question').textContent = question.question; 
+    document.getElementById('question').textContent = question.question;
 
     const optionsContainer = document.getElementById('answers');
-    optionsContainer.innerHTML = ''; 
+    optionsContainer.innerHTML = '';
     const allOptions = [...question.incorrect_answers, question.correct_answer];
     allOptions.sort(() => Math.random() - 0.5);
 
@@ -73,35 +74,35 @@ function loadQuestion(index) {
         optionElement.addEventListener('click', function() {
             checkAnswer(option, question.correct_answer, optionElement);
         });
-        optionsContainer.appendChild(optionElement); 
+        optionsContainer.appendChild(optionElement);
     });
 
     document.getElementById('next-btn').style.display = index < questions.length - 1 ? 'block' : 'none';
 }
 
 function checkAnswer(selectedOption, correctAnswer, optionElement) {
-    clearInterval(timerInterval); 
+    clearInterval(timerInterval);
 
     const options = document.querySelectorAll('.option');
 
     if (selectedOption === correctAnswer) {
-        optionElement.classList.add('correct'); 
+        optionElement.classList.add('correct');
         correctAnswersCount++;
     } else {
-        optionElement.classList.add('incorrect'); 
+        optionElement.classList.add('incorrect');
         incorrectAnswersCount++;
         options.forEach(option => {
             if (option.textContent === correctAnswer) {
-                option.classList.add('correct'); 
+                option.classList.add('correct');
             }
         });
     }
 
     options.forEach(option => {
-        option.style.pointerEvents = 'none'; 
+        option.style.pointerEvents = 'none';
     });
 
-    document.getElementById('next-btn').style.display = 'block'; 
+    document.getElementById('next-btn').style.display = 'block';
 }
 
 document.getElementById('next-btn').addEventListener('click', function() {
@@ -115,13 +116,13 @@ function moveToNextQuestion() {
         loadQuestion(currentQuestionIndex);
     } else {
         document.getElementById('quiz-container').style.display = 'none';
-        document.getElementById('completion-container').style.display = 'block'; 
+        document.getElementById('completion-container').style.display = 'block';
     }
 }
 
 document.getElementById('view-results-btn').addEventListener('click', function() {
     document.getElementById('completion-container').style.display = 'none';
-    document.getElementById('results-container').style.display = 'block'; 
+    document.getElementById('results-container').style.display = 'block';
 
     document.getElementById('correct-count').textContent = correctAnswersCount;
     document.getElementById('incorrect-count').textContent = incorrectAnswersCount;
