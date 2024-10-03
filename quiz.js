@@ -1,5 +1,8 @@
-let currentQuestionIndex = 0; 
-let questions = []; 
+let currentQuestionIndex = 0;
+let questions = [];
+let correctAnswersCount = 0;
+let incorrectAnswersCount = 0;
+const totalMarks = 10;
 
 async function fetchQuizQuestions() {
     const APIUrl = 'https://opentdb.com/api.php?amount=10&category=19&difficulty=hard&type=multiple';
@@ -12,7 +15,7 @@ async function fetchQuizQuestions() {
         return data.results; 
     } catch (error) {
         console.error('Error fetching the quiz questions:', error);
-        return [];
+        return []; 
     }
 }
 
@@ -57,8 +60,10 @@ function checkAnswer(selectedOption, correctAnswer, optionElement) {
 
     if (selectedOption === correctAnswer) {
         optionElement.classList.add('correct');
+        correctAnswersCount++;
     } else {
         optionElement.classList.add('incorrect');
+        incorrectAnswersCount++;
         options.forEach(option => {
             if (option.textContent === correctAnswer) {
                 option.classList.add('correct');
@@ -69,7 +74,6 @@ function checkAnswer(selectedOption, correctAnswer, optionElement) {
     options.forEach(option => {
         option.style.pointerEvents = 'none';
     });
-
     document.getElementById('next-btn').style.display = 'block';
 }
 
@@ -84,10 +88,16 @@ document.getElementById('next-btn').addEventListener('click', function() {
         loadQuestion(currentQuestionIndex);
     } else {
         document.getElementById('quiz-container').style.display = 'none';
-        document.getElementById('completion-container').style.display = 'block';  
+        document.getElementById('completion-container').style.display = 'block';
     }
 });
 
 document.getElementById('view-results-btn').addEventListener('click', function() {
-    alert('This will take you to the results page.'); 
+    document.getElementById('completion-container').style.display = 'none';
+    document.getElementById('results-container').style.display = 'block';
+    
+    document.getElementById('correct-count').textContent = correctAnswersCount;
+    document.getElementById('incorrect-count').textContent = incorrectAnswersCount;
+    document.getElementById('score').textContent = correctAnswersCount;
+    document.getElementById('total-marks').textContent = totalMarks;
 });
