@@ -58,6 +58,20 @@
     <p>Great job! You have completed the quiz.</p>
     <button id="view-results-btn" class="view-results-btn">View Results</button>
   </div>
+
+  <div class="results-container" id="results-container" style="display: none;">
+    <h2>Results</h2>
+    <div class="result-box" id="correct-answers">
+      <h3>Correct Answers: <span id="correct-count"></span></h3>
+    </div>
+    <div class="result-box" id="incorrect-answers">
+      <h3>Incorrect Answers: <span id="incorrect-count"></span></h3>
+    </div>
+    <div class="result-box" id="total-score">
+      <h3>Total Score: <span id="score"></span> / <span id="total-marks"></span></h3>
+    </div>
+  </div>
+
   <script src="quiz.js"></script>
 </body>
 </html>
