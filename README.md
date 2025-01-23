@@ -18,6 +18,6 @@ Displays final score and result summary at the end.
 
 # Demo Link:
 
-Try it on here: 
+Try it on here: https://task-quiz-website.netlify.app/
 This project showcases asynchronous programming, API integration, and interactive UI development with JavaScript.
 
